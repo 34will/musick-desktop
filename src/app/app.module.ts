@@ -1,18 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
 
+import { FileSystemService } from '../services/file-system.service';
+
+const components: any[] = [AppComponent];
+const providers: any[] = [FileSystemService];
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: components,
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: providers,
   bootstrap: [AppComponent]
 })
 export class AppModule { }
