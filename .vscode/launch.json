@@ -1,72 +1,65 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Electron Main Debug",
-            "type": "node",
-            "request": "launch",
-            "cwd": "${workspaceRoot}",
-            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
-            "windows": {
-                "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
-            },
-            "runtimeArgs": [
-                "${workspaceRoot}/electron/main.js",
-                "--mode=debug",
-                "--webtools=true"
-            ],
-            "protocol": "inspector",
-        },
-        {
-            "name": "Electron Main Release",
-            "type": "node",
-            "request": "launch",
-            "cwd": "${workspaceRoot}",
-            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
-            "windows": {
-                "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
-            },
-            "runtimeArgs": [
-                "${workspaceRoot}/electron/main.js",
-                "--mode=release",
-                "--webtools=true"
-            ],
-            "protocol": "inspector",
-        },
-        {
-            "name": "Electron Renderer Debug",
-            "type": "chrome",
-            "request": "launch",
-            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
-            "windows": {
-                "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
-            },
-            "runtimeArgs": [
-                "${workspaceRoot}/electron/main.js",
-                "--mode=debug",
-                "--webtools=false",
-                "--remote-debugging-port=9222"
-            ],
-            "webRoot": "${workspaceRoot}"
-        },
-        {
-            "name": "Electron Renderer Release",
-            "type": "chrome",
-            "request": "launch",
-            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
-            "windows": {
-                "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
-            },
-            "runtimeArgs": [
-                "${workspaceRoot}/electron/main.js",
-                "--mode=release",
-                "--webtools=false",
-                "--remote-debugging-port=9222"
-            ],
-            "webRoot": "${workspaceRoot}"
-        }
-    ]
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Main Debug",
+			"type": "node",
+			"request": "launch",
+			"cwd": "${workspaceRoot}",
+			"runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
+			"windows": {
+				"runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
+			},
+			"runtimeArgs": [
+				"${workspaceRoot}/electron/main.js",
+				"--mode=debug",
+				"--webtools=false",
+				"--remote-debugging-port=9223"
+			],
+			"protocol": "inspector",
+		},
+		{
+			"name": "Main Release",
+			"type": "node",
+			"request": "launch",
+			"cwd": "${workspaceRoot}",
+			"runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
+			"windows": {
+				"runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
+			},
+			"runtimeArgs": [
+				"${workspaceRoot}/electron/main.js",
+				"--mode=release",
+				"--webtools=false",
+				"--remote-debugging-port=9223"
+			],
+			"protocol": "inspector",
+		},
+		{
+			"name": "Renderer",
+			"type": "chrome",
+			"request": "attach",
+			"port": 9223,
+			"webRoot": "${workspaceRoot}/src"
+		}
+	],
+	"compounds": [
+		{
+			"name": "Electron Debug",
+			"configurations": [
+				"Main Debug",
+				"Renderer"
+			]
+		},
+		{
+			"name": "Electron Release",
+			"configurations": [
+				"Main Release",
+				"Renderer"
+			]
+		}
+	]
 }
