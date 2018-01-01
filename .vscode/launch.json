@@ -18,7 +18,7 @@
                 "--mode=debug",
                 "--webtools=true"
             ],
-            "protocol": "legacy",
+            "protocol": "inspector",
         },
         {
             "name": "Electron Main Release",
@@ -34,7 +34,7 @@
                 "--mode=release",
                 "--webtools=true"
             ],
-            "protocol": "legacy",
+            "protocol": "inspector",
         },
         {
             "name": "Electron Renderer Debug",
