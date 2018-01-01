@@ -1,3 +1,5 @@
+import { InjectionToken } from "@angular/core";
+
 import { ReadStream, WriteStream } from "fs";
 
 export interface IFileSystem
@@ -22,3 +24,5 @@ export interface IFileSystem
 
 	readonly TempFolder: string;
 }
+
+export let IFileSystemToken = new InjectionToken<IFileSystem>("i-file-system.token");

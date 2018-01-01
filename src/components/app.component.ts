@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
 
-import { FileSystemService } from '../services/file-system.service';
+import { IFileSystem, IFileSystemToken } from '../services/file-system.interface';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,7 @@ import { FileSystemService } from '../services/file-system.service';
 })
 export class AppComponent {
 	title = 'app';
-	constructor (service: FileSystemService) {
+	constructor(@Inject(IFileSystemToken) service: IFileSystem) {
 		debugger;
 	}
 }
