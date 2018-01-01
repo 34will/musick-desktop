@@ -10,13 +10,13 @@ export interface IFileSystem
 
 	Write(filepath: string): WriteStream;
 
-	Delete(filepath: string): boolean;
+	Delete(filepath: string, trash: boolean): boolean;
 
 	FolderExists(folder: string): boolean;
 
 	CreateFolder(folder: string): boolean;
 
-	DeleteFolder(folder: string): boolean;
+	DeleteFolder(folder: string, trash: boolean): boolean;
 
 	readonly HomeFolder: string;
 

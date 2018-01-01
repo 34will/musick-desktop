@@ -30,6 +30,7 @@
     "@types/node": "^6.0.94",
     "core-js": "^2.4.1",
     "rxjs": "^5.5.2",
+    "trash": "^4.2.1",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {
