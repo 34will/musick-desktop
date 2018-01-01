@@ -60,7 +60,7 @@ export class FileSystemService implements IFileSystem
 
 	public get ApplicationFolder(): string
 	{
-		return remote.process.env.APPDATA || (remote.process.env.HOME + (remote.process.platform == 'darwin' ? 'Library/Preferences' : '.local/share'));
+		return remote.process.env.APPDATA || (remote.process.env.HOME + (remote.process.platform == 'darwin' ? '/Library/Preferences' : '.local/share'));
 	}
 
 	public get TempFolder(): string
